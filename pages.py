@@ -146,7 +146,6 @@ class UrbanRoutesMainPage:
         self.driver.find_element(*self.TAXI_PHONE_2_LOCATOR).send_keys(PHONE_NUMBER)
         self.driver.find_element(*self.TAXI_NEXT_BUTTON_LOCATOR).click()
         code=helpers.retrieve_phone_code(self.driver)
-        print(code)
         self.driver.find_element(*self.CODE_TAXI_BUTTON_LOCATOR).send_keys(code)
         self.driver.find_element(*self.CODE_SUBMIT_BUTTON_LOCATOR).click()
     def get_phone_check(self):

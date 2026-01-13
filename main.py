@@ -2,7 +2,7 @@ from data import URBAN_ROUTES_URL, PHONE_NUMBER, ADDRESS_FROM, ADDRESS_TO, MESSA
 from helpers import is_url_reachable
 from selenium import webdriver
 import time
-from Urban_Routes_Main_Page import UrbanRoutesMainPage
+from pages import UrbanRoutesMainPage
 
 class TestUrbanRoutes:
     @classmethod
@@ -18,8 +18,8 @@ class TestUrbanRoutes:
         else:
             print("Cannot connect to Urban Routes. Check the server is on and still running")
 
+#CLEAN UP WEBPAGE TO REDUCE TEST INTERACTION ERROR
         def teardown_method(self):
-
             print("teardown method called")
             self.driver.delete_all_cookies()
             self.driver.refresh()
