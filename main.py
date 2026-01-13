@@ -20,6 +20,7 @@ class TestUrbanRoutes:
             print("Cannot connect to Urban Routes. Check the server is on and still running")
 
         def teardown_method(self):
+
             print("teardown method called")
             self.driver.delete_all_cookies()
             self.driver.refresh()
