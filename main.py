@@ -4,7 +4,6 @@ from selenium import webdriver
 import time
 from Urban_Routes_Main_Page import UrbanRoutesMainPage
 
-
 class TestUrbanRoutes:
     @classmethod
     def setup_class(cls):
