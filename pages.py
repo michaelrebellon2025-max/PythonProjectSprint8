@@ -5,7 +5,6 @@ import time
 from selenium.webdriver.common.by import By
 from data import PHONE_NUMBER, CARD_NUMBER, CARD_CODE, MESSAGE_FOR_DRIVER
 
-
 class UrbanRoutesMainPage:
     FROM_LOCATOR = (By.ID, 'from')
     TO_LOCATOR = (By.ID, 'to')
@@ -123,18 +122,25 @@ class UrbanRoutesMainPage:
 
     def click_drivers_license_icon(self):
         self.driver.find_element(*self.DRIVERS_LICENSE_LOCATOR).click()
+
     def enter_first_name(self,first_name):
         self.driver.find_element(*self.FIRST_NAME_LOCATOR).send_keys(first_name)
+
     def enter_last_name(self,last_name):
         self.driver.find_element(*self.LAST_NAME_LOCATOR).send_keys(last_name)
+
     def enter_birth_date(self,birth_date):
         self.driver.find_element(*self.BIRTHDATE_LOCATOR).send_keys(birth_date)
+
     def enter_card_number(self,card_number):
         self.driver.find_element(*self.CARD_NUMBER_LOCATOR).send_keys(card_number)
+
     def click_add_card(self):
         self.driver.find_element(*self.ADD_CARD_LOCATOR).click()
+
     def get_add_card_text(self):
         return self.driver.find_element(*self.ADD_CARD_TEXT_LOCATOR).text
+
 #DURATION test
     def get_duration_text(self):
         return self.driver.find_element(*self.DURATION_LOCATOR).text
@@ -168,7 +174,6 @@ class UrbanRoutesMainPage:
 
         # Remove focus
         self.driver.find_element(*self.CLICK_HEADER_LOCATOR).click()
-        #self.driver.find_element(*self.CLICK_LINK_CARD_LOCATOR).click()
         # Link card
         wait.until(EC.element_to_be_clickable(self.CLICK_LINK_CARD_LOCATOR)).click()
 
@@ -197,7 +202,7 @@ class UrbanRoutesMainPage:
             print("ℹ️ Toggle already active.")
     def check_blanket_toggle(self):
         return self.driver.find_element(*self.BLANKET_TOGGLE_SWITCH_LOCATOR).get_attribute("checked")
-
+#CLICK SUPPORTIVE TARIFF
     def click_selected_supportive(self):
         element = self.driver.find_element(By.XPATH, '//img[@src="/static/media/kids.27f92282.svg"]')
         css = element.get_attribute("class")
@@ -210,11 +215,12 @@ class UrbanRoutesMainPage:
     def check_supportive(self):
         active_card = self.driver.find_element(*self.ACTIVE_TARIFF_CARD_LOCATOR)
         return active_card.find_element(By.CLASS_NAME, "tcard-title").text
+
+#ORDER 2 ICE CREAMS
     def test_order_2_ice_creams(self):
         desired_amount = 2
         #Get current count
-        current_count = int(
-            self.driver.find_element(*self.ICE_CREAM_COUNT_LOCATOR).text)
+        current_count = int(self.driver.find_element(*self.ICE_CREAM_COUNT_LOCATOR).text)
         print(f"Current ice creams in order: {current_count}")
         if current_count < desired_amount:
             for i in range(desired_amount - current_count):

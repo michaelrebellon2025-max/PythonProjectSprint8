@@ -25,7 +25,6 @@ class TestUrbanRoutes:
             self.driver.refresh()
             time.sleep(1)
 
-
     def test_set_route(self):
         self.driver.get(URBAN_ROUTES_URL)
         urban_routes_main_page= UrbanRoutesMainPage(self.driver)
